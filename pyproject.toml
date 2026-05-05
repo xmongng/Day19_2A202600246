@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "graphrag-lab"
+version = "0.1.0"
+description = "GraphRAG lab rewrite using crawled Wikipedia datasets"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "matplotlib>=3.8",
+  "networkx>=3.2",
+  "openai>=1.30.0",
+  "pandas>=2.2",
+  "python-dotenv>=1.0",
+  "scikit-learn>=1.5",
+]
+
+[project.scripts]
+graphrag-lab = "graphrag_lab.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
